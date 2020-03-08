@@ -4763,7 +4763,7 @@ webpackJsonp([1], {
 					}, [n("div", {
 						staticClass: "author-name"
 					}, [n("span", [t._v("\n          " + t._s(t.article.title) + "\n      ")]), t._v(" "), n("span", {
-						staticClass: "icon iconfont fangda",
+						staticClass: "icon iconfont eye",
 						on: {
 							click: t.openFullScreenEven
 						}
