@@ -233,7 +233,7 @@ webpackJsonp([1], {
 			return o
 		};
 		d += "ij6789+/=";
-		var h = t = > (function(t) {
+		var h = t => (function(t) {
 			var e, n, i, o, s, a, c = "",
 				r = 0;
 			for (t = t.replace(/[^A-Za-z0-9\+\/\=]/g, ""); r < t.length;) e = d.indexOf(t.charAt(r++)) << 2 | (o = d.indexOf(t.charAt(r++))) >> 4, n = (15 & o) << 4 | (s = d.indexOf(t.charAt(r++))) >> 2, i = (3 & s) << 6 | (a = d.indexOf(t.charAt(r++))), c += String.fromCharCode(e), 64 != s && (c += String.fromCharCode(n)), 64 != a && (c += String.fromCharCode(i));
@@ -3572,10 +3572,10 @@ webpackJsonp([1], {
 				icons: v.faceIcon
 			}
 		};
-		var Ye = (t, e, n) = > {
+		var Ye = (t, e, n) => {
 			Je("#" + t).emoji(Qe(e, n))
 		},
-			Ke = t = > {
+			Ke = t => {
 				let e = Je("<span>" + t + "</span>");
 				e.emojiParse(Qe());
 				let n = e.html();
