@@ -1,5 +1,7 @@
 webpackJsonp([1], {
 	"+HhX": function(t, e) {},
+	"1TV7": function(t, e) {},
+	"31Hy": function(t, e) {},
 	"3ll9": function(t, e) {},
 	"7nI8": function(t, e) {},
 	"7xIN": function(t, e) {},
@@ -9,9 +11,10 @@ webpackJsonp([1], {
 	"9pPZ": function(t, e) {},
 	BAti: function(t, e) {},
 	CUsE: function(t, e) {},
-	Ghl7: function(t, e) {},
+	Idqy: function(t, e) {},
+	Iedq: function(t, e) {},
 	K1Kb: function(t, e) {},
-	LMqN: function(t, e) {},
+	L7M2: function(t, e) {},
 	NHnr: function(t, e, n) {
 		"use strict";
 		Object.defineProperty(e, "__esModule", {
@@ -214,7 +217,9 @@ webpackJsonp([1], {
 					file: ".png",
 					placeholder: "#emoji_{alias}#"
 				}],
-				autoInfoReset: !0
+				autoInfoReset: !0,
+				openMathJax: !1,
+				urlMathJax: "https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 			};
 		let d = "";
 		d += "AByz0r4wxs";
@@ -228,7 +233,7 @@ webpackJsonp([1], {
 			return o
 		};
 		d += "ij6789+/=";
-		var h = t => (function(t) {
+		var h = t = > (function(t) {
 			var e, n, i, o, s, a, c = "",
 				r = 0;
 			for (t = t.replace(/[^A-Za-z0-9\+\/\=]/g, ""); r < t.length;) e = d.indexOf(t.charAt(r++)) << 2 | (o = d.indexOf(t.charAt(r++))) >> 4, n = (15 & o) << 4 | (s = d.indexOf(t.charAt(r++))) >> 2, i = (3 & s) << 6 | (a = d.indexOf(t.charAt(r++))), c += String.fromCharCode(e), 64 != s && (c += String.fromCharCode(n)), 64 != a && (c += String.fromCharCode(i));
@@ -311,9 +316,9 @@ webpackJsonp([1], {
 			j = n("c/Tr"),
 			S = n.n(j),
 			$ = n("pFYg"),
-			U = n.n($),
-			M = n("OvRC"),
-			H = n.n(M);
+			M = n.n($),
+			U = n("OvRC"),
+			H = n.n(U);
 		n("K1Kb");
 		"function" != typeof H.a && (Object.create = function(t) {
 			function e() {}
@@ -352,7 +357,7 @@ webpackJsonp([1], {
 				}) : "mid-center" === this.options.position ? this._container.css({
 					left: C(y).outerWidth() / 2 - this._container.outerWidth() / 2,
 					top: C(y).outerHeight() / 2 - this._container.outerHeight() / 2
-				}) : this._container.addClass(this.options.position) : "object" == U()(this.options.position) ? this._container.css({
+				}) : this._container.addClass(this.options.position) : "object" == M()(this.options.position) ? this._container.css({
 					top: this.options.position.top ? this.options.position.top : "auto",
 					bottom: this.options.position.bottom ? this.options.position.bottom : "auto",
 					left: this.options.position.left ? this.options.position.left : "auto",
@@ -459,8 +464,8 @@ webpackJsonp([1], {
 			afterHidden: function() {}
 		};
 		var F = P.a;
-		var O = {},
-			R = {
+		var R = {},
+			O = {
 				getTextWidth: function(t, e) {
 					var n, i = document.createElement("span");
 					return i.innerText = t, i.className = "getTextWidth", i.style.fontSize = e + "px", document.querySelector("body").appendChild(i), n = document.querySelector(".getTextWidth").offsetWidth, document.querySelector(".getTextWidth").remove(), n
@@ -497,24 +502,26 @@ webpackJsonp([1], {
 				},
 				focusById: function(t) {},
 				registerUnClick: function(t, e) {
-					O[t] && (F(document).unbind("click", O[t]), delete O[t]);
+					R[t] && (F(document).unbind("click", R[t]), delete R[t]);
 					var n = function(n) {
 							0 == F(n.target).closest(t).length && e()
 						};
-					O[t] = n, F(document).bind("click", n)
+					R[t] = n, F(document).bind("click", n)
 				},
 				domIsVisible: function(t) {
 					return F(t).is(":visible")
 				},
-				registerAnchorFunc: function(t) {
+				registerAnchorFunc: function(t, e) {
 					t.find("a[href]").each(function(t, e) {
 						var n, i;
 						n = F(e), i = n.attr("href"), n.click(function() {
 							var t = document.querySelector(i);
 							t && t.scrollIntoView({
-								behavior: "smooth"
+								behavior: "smooth",
+								block: "start",
+								inline: "nearest"
 							})
-						}), n.attr("href", "javascript:void(0);")
+						}), n.attr("id", "nav" + i), n.attr("href", "javascript:void(0);")
 					})
 				},
 				fetchByIdFromObjArr: function(t, e, n) {
@@ -579,7 +586,7 @@ webpackJsonp([1], {
 								document.body.appendChild(e), e.value = t, e.focus(), e.setSelectionRange ? e.setSelectionRange(0, e.value.length) : e.select();
 								document.execCommand("copy");
 								document.body.removeChild(e)
-							}(F(t.target).closest("pre").find("code").text()), R.showInfoMsg("复制成功!")
+							}(F(t.target).closest("pre").find("code").text()), O.showInfoMsg("复制成功!")
 						}), e.prepend(n)
 					}
 				},
@@ -598,7 +605,7 @@ webpackJsonp([1], {
 							t && t(e), i.close && i.close()
 						}
 					} catch (t) {
-						console.log(t), R.showErrMsg("启动代码上传失败")
+						console.log(t), O.showErrMsg("启动代码上传失败")
 					}
 				},
 				OpenImageUploadWindow: function(t) {
@@ -617,11 +624,11 @@ webpackJsonp([1], {
 							window.open(t, "_blank", "width=" + e + ",height=" + n + ",toolbars=0,resizable=1,left=" + o + ",top=" + s).focus()
 						}(n, 450, 120, 200)
 					} catch (t) {
-						console.log(t), R.showErrMsg("启动图片上传失败")
+						console.log(t), O.showErrMsg("启动图片上传失败")
 					}
 				}
 			},
-			q = R,
+			q = O,
 			D = v.isForward,
 			V = {},
 			W = function(t, e) {
@@ -630,7 +637,7 @@ webpackJsonp([1], {
 					time: Date.parse(new Date)
 				}
 			},
-			G = function(t, e) {
+			z = function(t, e) {
 				return new B.a(function(n, i) {
 					P.a.ajax({
 						url: t,
@@ -646,8 +653,8 @@ webpackJsonp([1], {
 					})
 				})
 			},
-			z = function(t) {
-				return G(v.extendApiPath + "/forwardGet.php", {
+			G = function(t) {
+				return z(v.extendApiPath + "/forwardGet.php", {
 					url: t
 				})
 			},
@@ -662,7 +669,7 @@ webpackJsonp([1], {
 				});
 				var e
 			},
-			Q = function(t, e) {
+			J = function(t, e) {
 				return function(t, e) {
 					return new B.a(function(n, i) {
 						P.a.ajax({
@@ -682,10 +689,10 @@ webpackJsonp([1], {
 					})
 				}(t, e)
 			},
-			Y = function(t) {
-				return D ? z(t) : X(t)
+			Q = function(t) {
+				return D ? G(t) : X(t)
 			},
-			J = function(t, e) {
+			Y = function(t, e) {
 				return D ?
 				function(t, e) {
 					var n = {};
@@ -698,8 +705,8 @@ webpackJsonp([1], {
 						}
 						n[i] = o
 					}
-					return G(v.extendApiPath + "/forwardPost.php", n)
-				}(t, e) : Q(t, e)
+					return z(v.extendApiPath + "/forwardPost.php", n)
+				}(t, e) : J(t, e)
 			},
 			K = function(t) {
 				return "<div>" + (t = (t = (t = (t = (t = (t = t.replace(/<link.*?(\/)*?>/gi, "")).replace(/<style[\s\S]*?<\/style>/gi, "")).replace(/<head[\s\S]*?<\/head>/gi, "")).replace(/<script/gi, "<cjunscript")).replace(/<\/script>/gi, "</cjunscript>")).replace(/src=/g, "_src=")) + "</div>"
@@ -724,7 +731,7 @@ webpackJsonp([1], {
 				})
 			},
 			tt = function(t, e) {
-				return new Z(Y, t, e)
+				return new Z(Q, t, e)
 			},
 			et = function(t, e, n) {
 				return new function(t, e, n, i) {
@@ -740,10 +747,10 @@ webpackJsonp([1], {
 							s()
 						})
 					})
-				}(J, t, e, n)
+				}(Y, t, e, n)
 			},
 			nt = function(t, e) {
-				return new Z(z, t, e)
+				return new Z(G, t, e)
 			},
 			it = function(t) {
 				var e = t.split("/");
@@ -1017,7 +1024,7 @@ webpackJsonp([1], {
 				var e = {},
 					n = [],
 					i = P()(t);
-				return e.current = (i.find(".current").html() || "").trim(), e.list = n, i.find(".feedbackItem").each(function(t, e) {
+				return e.current = (i.find(".current").html() || "1").trim(), e.list = n, i.find(".feedbackItem").each(function(t, e) {
 					var i, o = P()(e),
 						s = o.find("[onclick^='return Reply']").length > 0,
 						a = o.find("[onclick^='return Quote']").length > 0,
@@ -1300,7 +1307,8 @@ webpackJsonp([1], {
 								s = t[1];
 							if (o > v.commentLength) {
 								var a = function(t, e) {
-										for (var n = 0; n < t.length; n++) if (t[n].commenterAnchor == e) return n
+										for (var n = 0; n < t.length; n++) if (t[n].commenterAnchor == e) return n;
+										return 0
 									}(s.list, e),
 									c = (s.current - 1) * n + Math.ceil(a / (v.commentLength - 1)),
 									r = (c - 1) % n * v.commentLength,
@@ -1352,7 +1360,7 @@ webpackJsonp([1], {
 					return tt("https://home.cnblogs.com/u/" + t + "/", wt)
 				},
 				loadBlogAuthorInfo: function() {
-					return tt("https://home.cnblogs.com/u/" + v.blogAcc + "/", wt)
+					return nt("https://home.cnblogs.com/u/" + v.blogAcc + "/", wt)
 				},
 				addComment: function(t, e, n) {
 					return e = e || 0, et("https://www.cnblogs.com/" + v.blogAcc + "/ajax/PostComment/Add.aspx", {
@@ -1460,7 +1468,7 @@ webpackJsonp([1], {
 					}
 				}
 			},
-			Ut = {
+			Mt = {
 				render: function() {
 					var t = this,
 						e = t.$createElement,
@@ -1561,8 +1569,8 @@ webpackJsonp([1], {
 					}, [this._v("Loading...")])])
 				}]
 			};
-		var Mt = n("VU/8")($t, Ut, !1, function(t) {
-			n("iAH+")
+		var Ut = n("VU/8")($t, Mt, !1, function(t) {
+			n("L7M2")
 		}, null, null).exports,
 			Ht = {
 				name: "BlogMusic",
@@ -1831,13 +1839,13 @@ webpackJsonp([1], {
 					}, [e("strong", [this._v("闲言碎语")])])
 				}]
 			};
-		var Ot = {
+		var Rt = {
 			name: "BlogHead",
 			components: {
 				BlogMusic: n("VU/8")(Ht, Ft, !1, function(t) {
-					n("avOj")
+					n("31Hy")
 				}, null, null).exports,
-				BlogSearch: Mt,
+				BlogSearch: Ut,
 				BlogName: x
 			},
 			data: function() {
@@ -1862,7 +1870,7 @@ webpackJsonp([1], {
 				}, 3900)
 			}
 		},
-			Rt = {
+			Ot = {
 				render: function() {
 					var t = this.$createElement,
 						e = this._self._c || t;
@@ -1891,7 +1899,7 @@ webpackJsonp([1], {
 				},
 				staticRenderFns: []
 			};
-		var qt = n("VU/8")(Ot, Rt, !1, function(t) {
+		var qt = n("VU/8")(Rt, Ot, !1, function(t) {
 			n("UqSm")
 		}, null, null).exports,
 			Dt = {};
@@ -1921,7 +1929,7 @@ webpackJsonp([1], {
 					}
 				}
 			},
-			Gt = {
+			zt = {
 				render: function() {
 					var t = this,
 						e = t.$createElement,
@@ -2016,20 +2024,20 @@ webpackJsonp([1], {
 					})])
 				}]
 			};
-		var zt = n("VU/8")(Wt, Gt, !1, function(t) {
+		var Gt = n("VU/8")(Wt, zt, !1, function(t) {
 			n("BAti")
 		}, null, null).exports,
 			Xt = r()([], v.blogFriendList);
 		Xt.unshift(Vt.myfriend);
-		var Qt = {
+		var Jt = {
 			name: "BlogAside",
 			components: {
-				BlogMenuItem: zt
+				BlogMenuItem: Gt
 			},
 			methods: {
 				imgError: function(t) {
 					var e = this;
-					St.loadBlogAuthorInfo().then(function(t) {
+					this.avatar && St.loadBlogAuthorInfo().then(function(t) {
 						e.avatar = t.headUrl
 					})
 				},
@@ -2105,7 +2113,7 @@ webpackJsonp([1], {
 				}
 			}
 		},
-			Yt = {
+			Qt = {
 				render: function() {
 					var t = this,
 						e = t.$createElement,
@@ -2212,8 +2220,8 @@ webpackJsonp([1], {
 				},
 				staticRenderFns: []
 			};
-		var Jt = n("VU/8")(Qt, Yt, !1, function(t) {
-			n("LMqN")
+		var Yt = n("VU/8")(Jt, Qt, !1, function(t) {
+			n("Iedq")
 		}, null, null).exports;
 		console.log(Vt.outPrint[0], Vt.outPrint[1], Vt.outPrint[2]);
 		var Kt = Vt.myPage,
@@ -2675,10 +2683,10 @@ webpackJsonp([1], {
 			name: "BlogPanel",
 			components: {
 				BlogFullPage: n("VU/8")(Ae, ke, !1, function(t) {
-					n("Pphs")
+					n("icXv")
 				}, null, null).exports,
 				BlogBottom: ne,
-				BlogAside: Jt,
+				BlogAside: Yt,
 				BlogHead: qt
 			},
 			mounted: function() {
@@ -3063,7 +3071,7 @@ webpackJsonp([1], {
 					}
 				}
 			},
-			Ue = {
+			Me = {
 				render: function() {
 					var t = this,
 						e = t.$createElement,
@@ -3134,10 +3142,10 @@ webpackJsonp([1], {
 				},
 				staticRenderFns: []
 			};
-		var Me = {
+		var Ue = {
 			name: "BlogAuthorBody",
 			components: {
-				BlogAuthorAside: n("VU/8")($e, Ue, !1, function(t) {
+				BlogAuthorAside: n("VU/8")($e, Me, !1, function(t) {
 					n("9YwF")
 				}, null, null).exports,
 				BlogAuthorIng: Se
@@ -3151,10 +3159,10 @@ webpackJsonp([1], {
 				},
 				staticRenderFns: []
 			};
-		var Fe = n("VU/8")(Me, He, !1, function(t) {
+		var Fe = n("VU/8")(Ue, He, !1, function(t) {
 			n("z12H")
 		}, "data-v-01673cd3", null).exports,
-			Oe = {
+			Re = {
 				name: "BlogHotPage",
 				created: function() {
 					var t = this;
@@ -3173,7 +3181,7 @@ webpackJsonp([1], {
 					}
 				}
 			},
-			Re = {
+			Oe = {
 				render: function() {
 					var t = this,
 						e = t.$createElement,
@@ -3219,7 +3227,7 @@ webpackJsonp([1], {
 					}, [e("div", [this._v("热门文章")])])
 				}]
 			};
-		var qe = n("VU/8")(Oe, Re, !1, function(t) {
+		var qe = n("VU/8")(Re, Oe, !1, function(t) {
 			n("Wmd0")
 		}, null, null).exports,
 			De = {
@@ -3320,7 +3328,7 @@ webpackJsonp([1], {
 		var We = n("VU/8")(De, Ve, !1, function(t) {
 			n("pVUV")
 		}, null, null).exports,
-			Ge = {
+			ze = {
 				name: "BlogCloudPage",
 				created: function() {
 					var t = this;
@@ -3334,7 +3342,7 @@ webpackJsonp([1], {
 					}
 				}
 			},
-			ze = {
+			Ge = {
 				render: function() {
 					var t = this,
 						e = t.$createElement,
@@ -3366,7 +3374,7 @@ webpackJsonp([1], {
 					}, [e("div", [this._v("标签云")])])
 				}]
 			};
-		var Xe = n("VU/8")(Ge, ze, !1, function(t) {
+		var Xe = n("VU/8")(ze, Ge, !1, function(t) {
 			n("ss5S")
 		}, null, null).exports;
 		n("nVrZ");
@@ -3417,7 +3425,7 @@ webpackJsonp([1], {
 						h = '<div id="emoji' + T + '" class="emoji_icons" style="' + (0 === T ? "" : "display:none;") + '"><ul>';
 						for (var E = 1; E <= g; E++) if (!(v && v.indexOf(E) >= 0)) {
 							if (w) {
-								if ("object" !== (void 0 === w ? "undefined" : U()(w))) {
+								if ("object" !== (void 0 === w ? "undefined" : M()(w))) {
 									alert("Error config about alias!");
 									break
 								}
@@ -3512,7 +3520,7 @@ webpackJsonp([1], {
 				return emoji_index++, this.each(function() {
 					var n = t(this),
 						a = n.data("plugin_" + i + emoji_index),
-						c = t.extend({}, o, n.data(), "object" === (void 0 === e ? "undefined" : U()(e)) && e);
+						c = t.extend({}, o, n.data(), "object" === (void 0 === e ? "undefined" : M()(e)) && e);
 					a || n.data("plugin_" + i + emoji_index, a = new s(this, c)), "string" == typeof e && a[e]()
 				})
 			}, t.fn[i].Constructor = s
@@ -3549,13 +3557,13 @@ webpackJsonp([1], {
 				return this.each(function() {
 					var n = t(this),
 						a = n.data("plugin_" + i),
-						c = t.extend({}, o, n.data(), "object" === (void 0 === e ? "undefined" : U()(e)) && e);
+						c = t.extend({}, o, n.data(), "object" === (void 0 === e ? "undefined" : M()(e)) && e);
 					a || n.data("plugin_" + i, a = new s(this, c)), "string" == typeof e && a[e]()
 				})
 			}, t.fn[i].Constructor = s
 		}(P.a, window, document);
-		var Qe = P.a;
-		let Ye = function(t, e) {
+		var Je = P.a;
+		let Qe = function(t, e) {
 			return {
 				showTab: !0,
 				animation: "fade",
@@ -3564,12 +3572,12 @@ webpackJsonp([1], {
 				icons: v.faceIcon
 			}
 		};
-		var Je = (t, e, n) => {
-			Qe("#" + t).emoji(Ye(e, n))
+		var Ye = (t, e, n) = > {
+			Je("#" + t).emoji(Qe(e, n))
 		},
-			Ke = t => {
-				let e = Qe("<span>" + t + "</span>");
-				e.emojiParse(Ye());
+			Ke = t = > {
+				let e = Je("<span>" + t + "</span>");
+				e.emojiParse(Qe());
 				let n = e.html();
 				return e.remove(), n
 			},
@@ -3681,9 +3689,9 @@ webpackJsonp([1], {
 							var i = P()("<span class='icon iconfont top topBtn topBtnDown'></span>");
 							i.click(function() {
 								i.hasClass("topBtnDown") ? t.$bus.emit("panelToBottom", {}) : t.$bus.emit("panelToTop", {})
-							}), P()("#toc_page .toc-brand").append(i), t.$bus.on("panelScrollEven", function(t) {
+							}), P()("#toc_page .toc-brand").append(i), P()(".toc-nav").css("max-height", P()(".body-wrap").height() - 140 + "px"), t.$bus.on("panelScrollEven", function(t) {
 								var e = P()(".blog-navicat-page");
-								t.target.scrollTop > 60 ? (i.removeClass("topBtnDown"), e.css("position", "fixed"), e.css("top", "50px")) : (i.addClass("topBtnDown"), e.css("position", ""), e.css("top", ""))
+								t.target.scrollTop > 60 ? (i.removeClass("topBtnDown"), e.css("position", "fixed"), e.css("top", "50px"), P()(".toc-nav").css("max-height", P()(".body-wrap").height() - 100 + "px")) : (P()(".toc-nav").css("max-height", P()(".body-wrap").height() - 140 + "px"), i.addClass("topBtnDown"), e.css("position", ""), e.css("top", ""))
 							})
 						}
 					})
@@ -3814,7 +3822,7 @@ webpackJsonp([1], {
 			name: "BlogWorksAside",
 			components: {
 				BlogNavicatPage: n("VU/8")(nn, on, !1, function(t) {
-					n("gGlq")
+					n("jMPw")
 				}, null, null).exports,
 				BlogCommentPage: en,
 				BlogCloudPage: Xe,
@@ -4202,7 +4210,7 @@ webpackJsonp([1], {
 				methods: {
 					openFaceEven: function() {
 						var t = this;
-						this.$refs.faceBtn.isInit || (this.$refs.faceBtn.isInit = !0, Je("comment_area_wrap", this.$refs.faceBtn, function(e) {
+						this.$refs.faceBtn.isInit || (this.$refs.faceBtn.isInit = !0, Ye("comment_area_wrap", this.$refs.faceBtn, function(e) {
 							t.commitArea = e
 						}))
 					},
@@ -4401,7 +4409,7 @@ webpackJsonp([1], {
 				}]
 			};
 		var Cn = n("VU/8")(bn, wn, !1, function(t) {
-			n("Ghl7")
+			n("1TV7")
 		}, null, null).exports,
 			yn = {
 				props: {
@@ -4436,17 +4444,18 @@ webpackJsonp([1], {
 							}, 150)
 						})
 					},
-					initCommentList: function() {
-						var t = this,
-							e = this.$route.query.anchor;
-						this.$bus.emit("openLoadingBar", {}), e ? St.loadArticleCommentInfoByAnchor(this.pageId, e).then(function(n) {
-							n.list.forEach(function(t) {
+					initCommentList: function(t) {
+						var e = this;
+						this.pageCur = t || this.pageCur;
+						var n = this.$route.query.anchor;
+						this.$bus.emit("openLoadingBar", {}), n ? St.loadArticleCommentInfoByAnchor(this.pageId, n).then(function(t) {
+							t.list.forEach(function(t) {
 								t.commentBody = t.commentBody.replace(new RegExp("_src", "g"), "src"), t.commentBody = Ke(t.commentBody)
-							}), t.commentInfo = n, t.$bus.emit("closeLoadingBar", {}), t.sendScrollEven(e)
-						}) : St.loadArticelCommentInfo(this.pageId, this.pageCur).then(function(e) {
-							e.list.forEach(function(t) {
+							}), e.commentInfo = t, e.$bus.emit("closeLoadingBar", {}), e.sendScrollEven(n)
+						}) : St.loadArticelCommentInfo(this.pageId, this.pageCur).then(function(t) {
+							t.list.forEach(function(t) {
 								t.commentBody = t.commentBody.replace(new RegExp("_src", "g"), "src"), t.commentBody = Ke(t.commentBody)
-							}), t.commentInfo = e, t.$bus.emit("closeLoadingBar", {})
+							}), e.commentInfo = t, e.$bus.emit("closeLoadingBar", {})
 						})
 					},
 					commentChange: function(t, e) {
@@ -4633,7 +4642,7 @@ webpackJsonp([1], {
 		var xn = {
 			components: {
 				BlogArticleCommList: n("VU/8")(yn, In, !1, function(t) {
-					n("nHL1")
+					n("Idqy")
 				}, null, null).exports,
 				BlogArticleCommPos: Cn
 			},
@@ -4679,7 +4688,7 @@ webpackJsonp([1], {
 				initBlogArticle: function(t, e) {
 					var n = this,
 						i = this;
-					this.pageId = t, B.a.all([new B.a(function(t, e) {
+					this.pageId = t, this.$refs.commList && this.$refs.commList.initCommentList(0), B.a.all([new B.a(function(t, e) {
 						St.loadArticle(n.pageId).then(function(e) {
 							i.article = e, t()
 						}).
@@ -4719,7 +4728,7 @@ webpackJsonp([1], {
 						setTimeout(function() {
 							n.$nextTick(function() {
 								setTimeout(function() {
-									n.$bus.emit("articleInited", n.$refs.articleBody), n.$bus.emit("dataedRoute", !0)
+									n.$bus.emit("articleInited", n.$refs.articleBody), n.$bus.emit("dataedRoute", !0), v.openMathJax && (delete window.MathJax, P.a.getScript(v.urlMathJax))
 								}, 150)
 							})
 						}, 150)
@@ -4763,7 +4772,7 @@ webpackJsonp([1], {
 					}, [n("div", {
 						staticClass: "author-name"
 					}, [n("span", [t._v("\n          " + t._s(t.article.title) + "\n      ")]), t._v(" "), n("span", {
-						staticClass: "icon iconfont eye",
+						staticClass: "icon iconfont fangda",
 						on: {
 							click: t.openFullScreenEven
 						}
@@ -4934,6 +4943,7 @@ webpackJsonp([1], {
 					})], 1), t._v(" "), n("div", {
 						staticClass: "post-body-comment post-body-item"
 					}, [n("blog-article-comm-list", {
+						ref: "commList",
 						attrs: {
 							pageId: t.pageId
 						}
@@ -4942,7 +4952,7 @@ webpackJsonp([1], {
 				staticRenderFns: []
 			};
 		var kn = n("VU/8")(xn, An, !1, function(t) {
-			n("yU0L")
+			n("XA3z")
 		}, null, null).exports,
 			Tn = {
 				name: "BlogTag",
@@ -5116,16 +5126,16 @@ webpackJsonp([1], {
 					})) : t()
 				})
 			},
-			Un = (n("9pPZ"), n("70Rd"));
-		Un.registerLanguage("xml", n("6STP")), Un.registerLanguage("css", n("izbv")), Un.registerLanguage("dos", n("esjm")), Un.registerLanguage("java", n("Zpgj")), Un.registerLanguage("javascript", n("IZDm")), Un.registerLanguage("json", n("GdJY")), Un.registerLanguage("php", n("yYL9")), Un.registerLanguage("python", n("k+sj")), Un.registerLanguage("scala", n("mIt0")), Un.registerLanguage("shell", n("R1FX")), Un.registerLanguage("sql", n("8IMK")), Un.registerLanguage("yaml", n("iOcu"));
-		var Mn = Un;
+			Mn = (n("9pPZ"), n("70Rd"));
+		Mn.registerLanguage("xml", n("6STP")), Mn.registerLanguage("css", n("izbv")), Mn.registerLanguage("dos", n("esjm")), Mn.registerLanguage("java", n("Zpgj")), Mn.registerLanguage("javascript", n("IZDm")), Mn.registerLanguage("json", n("GdJY")), Mn.registerLanguage("php", n("yYL9")), Mn.registerLanguage("python", n("k+sj")), Mn.registerLanguage("scala", n("mIt0")), Mn.registerLanguage("shell", n("R1FX")), Mn.registerLanguage("sql", n("8IMK")), Mn.registerLanguage("yaml", n("iOcu"));
+		var Un = Mn;
 		$n().then(function() {
 			i.a.use(jn.a), i.a.prototype.VUE_CTX = "/cnblog", i.a.config.productionTip = !1, i.a.directive("highlight", function(t) {
 				t.querySelectorAll("pre").forEach(function(t) {
 					q.initPreCodeCopyBtn(t)
 				}), t.querySelectorAll("pre code").forEach(function(t, e) {
 					setTimeout(function() {
-						t.highInit || (t.highInit = !0, Mn.highlightBlock(t))
+						t.highInit || (t.highInit = !0, Un.highlightBlock(t))
 					}, 250 * e)
 				})
 			});
@@ -5161,22 +5171,19 @@ webpackJsonp([1], {
 	},
 	NJZ7: function(t, e) {},
 	NknJ: function(t, e) {},
-	Pphs: function(t, e) {},
 	U54c: function(t, e) {},
 	UqSm: function(t, e) {},
 	Wmd0: function(t, e) {},
+	XA3z: function(t, e) {},
 	XJhr: function(t, e) {},
 	YJZa: function(t, e) {},
 	YTIq: function(t, e) {},
-	avOj: function(t, e) {},
 	cbQp: function(t, e) {},
 	eLY3: function(t, e) {},
-	gGlq: function(t, e) {},
-	"iAH+": function(t, e) {},
-	nHL1: function(t, e) {},
+	icXv: function(t, e) {},
+	jMPw: function(t, e) {},
 	nVrZ: function(t, e) {},
 	pVUV: function(t, e) {},
 	ss5S: function(t, e) {},
-	yU0L: function(t, e) {},
 	z12H: function(t, e) {}
 }, ["NHnr"]);
